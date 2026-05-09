@@ -195,10 +195,11 @@ export default function LandingPage() {
 
             {/* Left */}
             <div className="flex flex-col gap-8">
-              <motion.div initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, ease: APPLE_EASE }}
-                className="flex items-center gap-3">
-                <span className="text-white/70 text-sm font-medium whitespace-nowrap">Una creación de</span>
-                <Image src="/fyn_white.png" alt="ForgeYourNext" width={180} height={52} />
+              <motion.div initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, ease: APPLE_EASE }}>
+                <a href="https://agdesign.space" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 hover:opacity-80 transition-opacity">
+                  <span className="text-white/70 text-sm font-medium whitespace-nowrap">Una creación de</span>
+                  <Image src="/fyn_white.png" alt="ForgeYourNext" width={180} height={52} />
+                </a>
               </motion.div>
 
               <div className="flex flex-col gap-4">
@@ -489,10 +490,11 @@ export default function LandingPage() {
       {/* ══ 11. FOOTER ══════════════════════════════════════════ */}
       <footer className="bg-gray-900 py-10 px-6">
         <div className="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
-          <div className="flex items-center gap-2 opacity-60">
+          <a href="https://agdesign.space" target="_blank" rel="noopener noreferrer"
+            className="flex items-center gap-2 opacity-60 hover:opacity-100 transition-opacity">
             <span className="text-gray-400 text-xs">Una creación de</span>
             <Image src="/fyn_white.png" alt="ForgeYourNext" width={120} height={34} />
-          </div>
+          </a>
           <p className="text-gray-500 text-sm text-center">© {new Date().getFullYear()} ForgeYourNext · Todos los derechos reservados</p>
           <div className="flex gap-5 text-gray-500 text-sm">
             <a href="#" className="hover:text-gray-300 transition-colors">Privacidad</a>

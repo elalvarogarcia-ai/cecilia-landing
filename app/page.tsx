@@ -242,9 +242,9 @@ export default function LandingPage() {
 
               <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, ease: APPLE_EASE, delay: 0.9 }}
                 className="flex flex-col sm:flex-row gap-3 pt-2">
-                <a href="https://wa.me/521XXXXXXXXXX" target="_blank" rel="noopener noreferrer"
+                <a href="https://wa.me/525561222531" target="_blank" rel="noopener noreferrer"
                   className="flex items-center justify-center gap-2 bg-white text-[#0C6489] font-bold px-7 py-3.5 rounded-xl hover:bg-white/90 transition-all shadow-lg text-sm">
-                  <WhatsAppIcon />Habla con Cecilia
+                  <WhatsAppIcon />Solicita una demo
                 </a>
                 <a href="#demo"
                   className="flex items-center justify-center gap-2 bg-white/15 backdrop-blur-sm text-white font-medium px-7 py-3.5 rounded-xl hover:bg-white/25 transition-all border border-white/30 text-sm">
@@ -477,9 +477,9 @@ export default function LandingPage() {
           </FadeUp>
           <FadeUp delay={0.25}>
             <div className="flex flex-col sm:flex-row gap-3 justify-center">
-              <a href="https://wa.me/521XXXXXXXXXX" target="_blank" rel="noopener noreferrer"
+              <a href="https://wa.me/525561222531" target="_blank" rel="noopener noreferrer"
                 className="flex items-center justify-center gap-2 bg-white text-[#0C6489] font-bold px-8 py-4 rounded-xl hover:bg-white/90 transition-all shadow-lg">
-                <WhatsAppIcon />Hablar con Cecilia ahora
+                <WhatsAppIcon />Solicita una demo
               </a>
             </div>
             <p className="text-white/50 text-sm mt-3">Sin compromiso · Respuesta inmediata</p>
@@ -499,7 +499,7 @@ export default function LandingPage() {
           <div className="flex gap-5 text-gray-500 text-sm">
             <a href="#" className="hover:text-gray-300 transition-colors">Privacidad</a>
             <a href="#" className="hover:text-gray-300 transition-colors">Términos</a>
-            <a href="https://wa.me/521XXXXXXXXXX" className="hover:text-gray-300 transition-colors">Contacto</a>
+            <a href="https://wa.me/525561222531" className="hover:text-gray-300 transition-colors">Contacto</a>
           </div>
         </div>
       </footer>

@@ -21,7 +21,7 @@ const CHAT_MESSAGES = [
 
 const STATS_BAR = [
   { value: '+1,240', label: 'Citas agendadas' },
-  { value: '< 3 seg', label: 'Tiempo de respuesta' },
+  { value: '< 20 seg', label: 'Tiempo de respuesta' },
   { value: '24/7', label: 'Disponibilidad' },
   { value: '4×', label: 'Más visitas agendadas' },
 ]
@@ -60,7 +60,7 @@ const FEATURES = [
 ]
 
 const BIG_STATS = [
-  { value: '< 1 min', label: 'Tiempo promedio de respuesta al primer mensaje' },
+  { value: '< 20 seg', label: 'Tiempo promedio de respuesta al primer mensaje' },
   { value: '4×', label: 'Más visitas agendadas vs. atención manual' },
   { value: '3×', label: 'Más cierres de venta reportados por agentes' },
 ]
@@ -69,14 +69,14 @@ const CHARACTERISTICS = [
   { icon: '🗣️', title: 'Habla de forma natural', desc: 'Se comunica como un asesor humano, sin respuestas robóticas ni menús de opciones.' },
   { icon: '🧠', title: 'Aprende tu catálogo', desc: 'Conoce cada propiedad, sus precios, amenidades y disponibilidad en tiempo real.' },
   { icon: '🌙', title: 'Siempre disponible', desc: 'Atiende a tus clientes a las 3am del domingo si hace falta. Sin días de descanso.' },
-  { icon: '⚡', title: 'Respuesta instantánea', desc: 'Contesta en segundos, antes de que el cliente pierda el interés o contacte a la competencia.' },
+  { icon: '⚡', title: 'Respuesta instantánea', desc: 'Contesta en menos de 20 segundos, antes de que el cliente pierda el interés o contacte a la competencia.' },
   { icon: '🎯', title: 'Califica con precisión', desc: 'Identifica quién está listo para comprar y quién solo está explorando.' },
   { icon: '🔄', title: 'Nunca se cansa', desc: 'Maneja cientos de conversaciones simultáneas sin perder calidad ni contexto.' },
 ]
 
 const TESTIMONIALS = [
   { name: 'Laura Martínez', role: 'Directora de ventas · Grupo Inmobiliario GDL', avatar: 'LM', text: 'Desde que implementamos Cecilia, nuestro equipo dejó de perder tiempo respondiendo las mismas preguntas. Las citas llegan solas y los clientes ya llegan calificados a la visita.' },
-  { name: 'Roberto Sánchez', role: 'Asesor independiente · Zapopan', avatar: 'RS', text: 'Antes perdía leads por no contestar rápido. Ahora Cecilia los atiende en segundos y yo solo me presento a las visitas. Dupliqué mis citas en el primer mes.' },
+  { name: 'Roberto Sánchez', role: 'Asesor independiente · Zapopan', avatar: 'RS', text: 'Antes perdía leads por no contestar rápido. Ahora Cecilia los atiende en menos de 20 segundos y yo solo me presento a las visitas. Dupliqué mis citas en el primer mes.' },
   { name: 'Daniela Torres', role: 'Gerente comercial · Torres & Asociados', avatar: 'DT', text: 'Lo que más me sorprendió fue la calidad de las conversaciones. Los clientes no sienten que hablan con un bot. Varios me han preguntado cómo se llama "la chica del WhatsApp".' },
   { name: 'Alejandro Ríos', role: 'Broker · RE/MAX Guadalajara', avatar: 'AR', text: 'El panel de control es excelente. Puedo ver todas las conversaciones, el estatus de cada lead y las citas agendadas desde el celular. Total visibilidad del negocio.' },
 ]
@@ -158,7 +158,7 @@ function WhatsAppMockup() {
       <motion.div initial={{ opacity: 0, x: 30 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.8, ease: APPLE_EASE, delay: 1.4 }}
         className="absolute -right-10 bottom-24 bg-white rounded-2xl shadow-xl px-4 py-3 items-center gap-3 hidden lg:flex">
         <span className="text-2xl">⚡</span>
-        <div><p className="text-xs text-gray-500">Tiempo de respuesta</p><p className="text-lg font-bold text-gray-800">&lt; 3 seg</p></div>
+        <div><p className="text-xs text-gray-500">Tiempo de respuesta</p><p className="text-lg font-bold text-gray-800">&lt; 20 seg</p></div>
       </motion.div>
     </div>
   )
@@ -224,7 +224,7 @@ export default function LandingPage() {
               <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, ease: APPLE_EASE, delay: 0.55 }}
                 className="flex flex-col gap-3">
                 {[
-                  { icon: '⚡', t: 'Respuesta inmediata', d: 'Contesta en segundos, las 24 horas del día.' },
+                  { icon: '⚡', t: 'Respuesta inmediata', d: 'Contesta en menos de 20 segundos, las 24 horas del día.' },
                   { icon: '🏠', t: 'Presenta propiedades', d: 'Filtra y muestra las opciones más relevantes.' },
                   { icon: '📅', t: 'Agenda citas automáticamente', d: 'Coordina visitas sin intervención humana.' },
                 ].map((b, i) => (

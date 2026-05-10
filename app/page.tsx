@@ -74,12 +74,6 @@ const CHARACTERISTICS = [
   { icon: '🔄', title: 'Nunca se cansa', desc: 'Maneja cientos de conversaciones simultáneas sin perder calidad ni contexto.' },
 ]
 
-const TESTIMONIALS = [
-  { name: 'Laura Martínez', role: 'Directora de ventas · Grupo Inmobiliario GDL', avatar: 'LM', text: 'Desde que implementamos Cecilia, nuestro equipo dejó de perder tiempo respondiendo las mismas preguntas. Las citas llegan solas y los clientes ya llegan calificados a la visita.' },
-  { name: 'Roberto Sánchez', role: 'Asesor independiente · Zapopan', avatar: 'RS', text: 'Antes perdía leads por no contestar rápido. Ahora Cecilia los atiende en menos de 20 segundos y yo solo me presento a las visitas. Dupliqué mis citas en el primer mes.' },
-  { name: 'Daniela Torres', role: 'Gerente comercial · Torres & Asociados', avatar: 'DT', text: 'Lo que más me sorprendió fue la calidad de las conversaciones. Los clientes no sienten que hablan con un bot. Varios me han preguntado cómo se llama "la chica del WhatsApp".' },
-  { name: 'Alejandro Ríos', role: 'Broker · RE/MAX Guadalajara', avatar: 'AR', text: 'El panel de control es excelente. Puedo ver todas las conversaciones, el estatus de cada lead y las citas agendadas desde el celular. Total visibilidad del negocio.' },
-]
 
 const PROPERTIES = [
   { img: 'https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=500&q=80', name: 'Casa Valle Real', zone: 'Zapopan', price: '$4,850,000', beds: 4, baths: 3 },
@@ -420,32 +414,92 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* ══ 8. TESTIMONIALS ═════════════════════════════════════ */}
-      <section className="py-24 px-6 bg-gray-50">
-        <div className="max-w-6xl mx-auto">
+      {/* ══ 8. PANEL DE ADMINISTRACIÓN ══════════════════════════ */}
+      <section className="py-24 px-6 overflow-hidden" style={{ background: 'linear-gradient(160deg, #f8fafc 0%, #e8f4f8 100%)' }}>
+        <div className="max-w-7xl mx-auto">
+
+          {/* Header */}
           <div className="text-center mb-16 flex flex-col gap-3">
-            <SectionLabel>Testimonios</SectionLabel>
+            <SectionLabel>Panel de administración</SectionLabel>
             <FadeUp delay={0.1}>
-              <h2 className="text-3xl lg:text-4xl font-bold text-gray-900">Lo que dicen los agentes</h2>
+              <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 leading-tight">
+                Monitorea y administra a Cecilia,<br className="hidden sm:block" />
+                <span style={{ color: '#0C6489' }}> desde donde sea</span>
+              </h2>
+            </FadeUp>
+            <FadeUp delay={0.2}>
+              <p className="text-gray-500 max-w-2xl mx-auto leading-relaxed">
+                Desde el panel de administración tienes visibilidad total de lo que Cecilia hace en tiempo real. Revisa cada conversación, gestiona tu catálogo de propiedades, supervisa las citas agendadas y mide el rendimiento de tu equipo — todo desde una sola pantalla, en cualquier dispositivo.
+              </p>
             </FadeUp>
           </div>
-          <StaggerGrid className="grid grid-cols-1 sm:grid-cols-2 gap-6" stagger={0.12}>
-            {TESTIMONIALS.map(t => (
-              <div key={t.name} className="bg-white rounded-2xl p-7 shadow-sm border border-gray-100 flex flex-col gap-4 hover:shadow-md transition-shadow">
-                <p className="text-gray-600 leading-relaxed text-sm">"{t.text}"</p>
-                <div className="flex items-center gap-3 mt-auto pt-4 border-t border-gray-50">
-                  <div className="w-10 h-10 rounded-full flex items-center justify-center text-white font-bold text-sm flex-shrink-0"
-                    style={{ background: 'linear-gradient(135deg, #0C6489, #44CACB)' }}>
-                    {t.avatar}
+
+          {/* Screenshots — desktop + mobile solapados */}
+          <div className="relative flex items-end justify-center mb-20">
+
+            {/* Desktop screenshot */}
+            <SlideRight delay={0.15}>
+              <div className="relative w-full max-w-3xl lg:max-w-4xl">
+                {/* Glow detrás */}
+                <div className="absolute -inset-4 rounded-3xl blur-3xl opacity-30"
+                  style={{ background: 'linear-gradient(135deg, #0C6489, #44CACB)' }} />
+                {/* Marco de browser */}
+                <div className="relative bg-gray-900 rounded-2xl overflow-hidden shadow-2xl border border-gray-700">
+                  <div className="flex items-center gap-1.5 px-4 py-3 bg-gray-800">
+                    <div className="w-3 h-3 rounded-full bg-red-500" />
+                    <div className="w-3 h-3 rounded-full bg-yellow-500" />
+                    <div className="w-3 h-3 rounded-full bg-green-500" />
+                    <div className="mx-3 flex-1 bg-gray-700 rounded-md h-5 flex items-center px-3">
+                      <span className="text-gray-400 text-xs">admin.ceciliarealestate.cloud</span>
+                    </div>
                   </div>
-                  <div>
-                    <p className="font-semibold text-gray-900 text-sm">{t.name}</p>
-                    <p className="text-xs text-gray-400">{t.role}</p>
-                  </div>
+                  <Image
+                    src="/panel-desktop.png"
+                    alt="Panel de administración — módulo de citas"
+                    width={1200}
+                    height={700}
+                    className="w-full"
+                  />
+                </div>
+              </div>
+            </SlideRight>
+
+            {/* Mobile screenshot — flotando encima a la derecha */}
+            <SlideLeft delay={0.3}>
+              <div className="absolute -right-4 lg:right-8 bottom-0 w-36 sm:w-44 lg:w-52 xl:w-60 drop-shadow-2xl">
+                <Image
+                  src="/panel-mobile.png"
+                  alt="Panel de administración — dashboard móvil"
+                  width={400}
+                  height={780}
+                  className="w-full"
+                />
+              </div>
+            </SlideLeft>
+          </div>
+
+          {/* Feature pills */}
+          <StaggerGrid
+            className="grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-4xl mx-auto"
+            stagger={0.12}
+            baseDelay={0.2}
+          >
+            {[
+              { icon: '📅', title: 'Citas en tabla o calendario', desc: 'Visualiza la agenda de visitas por día, semana o mes con código de color por estatus.' },
+              { icon: '📊', title: 'Métricas en tiempo real', desc: 'Leads, citas, tasa de conversión y propiedades más buscadas de un vistazo.' },
+              { icon: '💬', title: 'Historial de conversaciones', desc: 'Accede a cada chat que Cecilia tuvo con tus clientes, con el contexto completo.' },
+            ].map(f => (
+              <div key={f.title}
+                className="bg-white rounded-2xl p-6 flex gap-4 items-start shadow-sm border border-white hover:shadow-md hover:-translate-y-0.5 transition-all duration-300">
+                <span className="text-3xl flex-shrink-0">{f.icon}</span>
+                <div>
+                  <p className="font-bold text-gray-900 text-sm leading-snug mb-1">{f.title}</p>
+                  <p className="text-xs text-gray-500 leading-relaxed">{f.desc}</p>
                 </div>
               </div>
             ))}
           </StaggerGrid>
+
         </div>
       </section>
 

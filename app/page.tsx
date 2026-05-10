@@ -303,7 +303,7 @@ export default function LandingPage() {
 
                 <motion.p initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.9, ease: APPLE_EASE, delay: 0.4 }}
                   className="text-lg text-white/80 leading-relaxed max-w-md">
-                  Cecilia atiende a tus clientes por WhatsApp, presenta propiedades, filtra interesados y agenda citas — de forma completamente automática.
+                  Introduciendo a Cecilia, la agente IA que atiende a tus clientes por WhatsApp, presenta propiedades, filtra interesados y agenda citas — de forma completamente automática.
                 </motion.p>
               </div>
 

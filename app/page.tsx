@@ -1,5 +1,6 @@
 'use client'
 
+import React from 'react'
 import Image from 'next/image'
 import { motion } from 'framer-motion'
 import { FadeUp, FadeIn, ScaleIn, SlideLeft, SlideRight, StaggerGrid } from '@/components/animations/FadeUp'
@@ -32,7 +33,99 @@ const STEPS = [
   { num: '03', icon: '📅', title: 'Agenda la cita automáticamente', desc: 'Cuando el cliente muestra interés, Cecilia coordina la visita y la registra en el calendario del asesor sin ninguna intervención.' },
 ]
 
-const FEATURES = [
+/* ─── Calendar Mockup (Agenda feature visual) ───────────────── */
+function CalendarMockup() {
+  const weekDays = ['L', 'M', 'X', 'J', 'V', 'S', 'D']
+  // Mayo 2025: starts on Thursday (offset 3 from Monday=0)
+  const offset = 3
+  const totalDays = 31
+  const cells: (number | null)[] = Array(offset).fill(null)
+  for (let d = 1; d <= totalDays; d++) cells.push(d)
+  while (cells.length % 7 !== 0) cells.push(null)
+
+  const apptDays = new Set([7, 9, 12, 15, 19, 22, 26])
+  const today = 15
+
+  const appts = [
+    { day: 9,  time: '10:00', label: 'Casa Valle Real',    status: 'Confirmada',  dot: '#44CACB' },
+    { day: 12, time: '12:30', label: 'Depto Ventura',      status: 'Confirmada',  dot: '#0C6489' },
+    { day: 15, time: '11:00', label: 'Fracc. Solares',     status: 'Hoy',         dot: '#44CACB' },
+    { day: 19, time: '09:30', label: 'Casa Valle Real',    status: 'Pendiente',   dot: '#0C6489' },
+  ]
+
+  return (
+    <div className="bg-white rounded-2xl shadow-xl border border-gray-100 overflow-hidden flex flex-col h-full">
+      {/* Header */}
+      <div className="flex items-center justify-between px-5 pt-5 pb-3 border-b border-gray-100">
+        <div>
+          <p className="font-bold text-gray-900 text-sm">Mayo 2025</p>
+          <p className="text-xs text-gray-400 mt-0.5">6 citas agendadas</p>
+        </div>
+        <div className="flex items-center gap-1">
+          <div className="w-7 h-7 rounded-lg bg-gray-100 flex items-center justify-center text-gray-400 text-xs cursor-pointer">‹</div>
+          <div className="w-7 h-7 rounded-lg bg-gray-100 flex items-center justify-center text-gray-400 text-xs cursor-pointer">›</div>
+        </div>
+      </div>
+
+      {/* Weekday labels */}
+      <div className="grid grid-cols-7 px-4 pt-3 pb-1">
+        {weekDays.map(d => (
+          <div key={d} className="text-center text-xs font-semibold text-gray-300">{d}</div>
+        ))}
+      </div>
+
+      {/* Calendar grid */}
+      <div className="grid grid-cols-7 px-4 gap-y-0.5">
+        {cells.map((day, i) => (
+          <div key={i} className="flex flex-col items-center py-1">
+            {day && (
+              <div className="relative flex flex-col items-center">
+                <div
+                  className={`w-7 h-7 rounded-full flex items-center justify-center text-xs font-medium transition-all
+                    ${day === today ? 'text-white font-bold' : apptDays.has(day) ? 'text-gray-800 font-semibold' : 'text-gray-400'}`}
+                  style={day === today ? { background: 'linear-gradient(135deg, #0C6489, #44CACB)' } : {}}
+                >
+                  {day}
+                </div>
+                {apptDays.has(day) && day !== today && (
+                  <div className="w-1 h-1 rounded-full mt-0.5" style={{ background: '#44CACB' }} />
+                )}
+              </div>
+            )}
+          </div>
+        ))}
+      </div>
+
+      {/* Divider */}
+      <div className="mx-4 my-3 border-t border-gray-100" />
+
+      {/* Upcoming appointments */}
+      <div className="px-4 pb-4 flex flex-col gap-2 overflow-hidden">
+        <p className="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-1">Próximas citas</p>
+        {appts.map(a => (
+          <div key={`${a.day}-${a.time}`} className="flex items-center gap-3 rounded-xl px-3 py-2.5 bg-gray-50">
+            <div className="w-1 h-10 rounded-full flex-shrink-0" style={{ background: a.dot }} />
+            <div className="flex-1 min-w-0">
+              <p className="text-xs font-semibold text-gray-800 truncate leading-snug">{a.label}</p>
+              <p className="text-xs text-gray-400 leading-snug">Mayo {a.day} · {a.time}</p>
+            </div>
+            <span className={`text-xs rounded-full px-2 py-0.5 font-medium flex-shrink-0 whitespace-nowrap
+              ${a.status === 'Confirmada' ? 'bg-teal-50 text-teal-600' :
+                a.status === 'Hoy'        ? 'bg-blue-50 text-blue-600' :
+                                            'bg-amber-50 text-amber-600'}`}>
+              {a.status}
+            </span>
+          </div>
+        ))}
+      </div>
+    </div>
+  )
+}
+
+const FEATURES: Array<{
+  tag: string; title: string; desc: string; bullets: string[]
+  img?: string; imgAlt?: string; visual?: React.ReactNode
+}> = [
   {
     tag: 'Atención al cliente',
     title: 'Responde como un asesor experto',
@@ -54,8 +147,7 @@ const FEATURES = [
     title: 'Citas confirmadas sin esfuerzo',
     desc: 'Cecilia coordina horarios, confirma disponibilidad y registra cada visita directamente en el calendario. Tus asesores llegan a las citas, no a negociar horarios.',
     bullets: ['Agenda visitas según disponibilidad del asesor', 'Envía confirmaciones y recordatorios automáticos', 'Reagenda si el cliente cancela', 'Registra el resultado de cada visita'],
-    img: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=700&q=80',
-    imgAlt: 'Agenda de citas',
+    visual: <CalendarMockup />,
   },
 ]
 
@@ -358,10 +450,16 @@ export default function LandingPage() {
                 </SlideRight>
               </div>
               <ScaleIn delay={0.15} className={i % 2 === 1 ? 'lg:order-1' : ''}>
-                <div className="relative rounded-2xl overflow-hidden shadow-2xl h-72 lg:h-96">
-                  <Image src={f.img} alt={f.imgAlt} fill className="object-cover" />
-                  <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, rgba(12,100,137,0.35), transparent)' }} />
-                </div>
+                {f.visual ? (
+                  <div className="h-72 lg:h-[420px]">
+                    {f.visual}
+                  </div>
+                ) : (
+                  <div className="relative rounded-2xl overflow-hidden shadow-2xl h-72 lg:h-96">
+                    <Image src={f.img!} alt={f.imgAlt!} fill className="object-cover" />
+                    <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, rgba(12,100,137,0.35), transparent)' }} />
+                  </div>
+                )}
               </ScaleIn>
             </div>
           ))}

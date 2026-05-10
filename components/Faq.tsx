@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import { AnimatePresence, motion } from 'framer-motion'
 
 const FAQS = [
   {
@@ -51,11 +52,22 @@ export default function Faq() {
               +
             </span>
           </button>
-          {open === i && (
-            <div className="px-6 pb-5 text-gray-600 text-sm leading-relaxed border-t border-gray-50 pt-4">
-              {faq.a}
-            </div>
-          )}
+          <AnimatePresence initial={false}>
+            {open === i && (
+              <motion.div
+                key="answer"
+                initial={{ height: 0, opacity: 0 }}
+                animate={{ height: 'auto', opacity: 1 }}
+                exit={{ height: 0, opacity: 0 }}
+                transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
+                style={{ overflow: 'hidden' }}
+              >
+                <div className="px-6 pb-5 text-gray-600 text-sm leading-relaxed border-t border-gray-50 pt-4">
+                  {faq.a}
+                </div>
+              </motion.div>
+            )}
+          </AnimatePresence>
         </div>
       ))}
     </div>

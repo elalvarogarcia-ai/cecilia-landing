@@ -535,7 +535,7 @@ export default function LandingPage() {
           </div>
 
           {/* Screenshots — desktop + mobile solapados */}
-          <div className="relative flex items-end justify-center mb-20">
+          <div className="relative flex items-end justify-center mb-20 pr-40 sm:pr-48 lg:pr-56 xl:pr-64">
 
             {/* Desktop screenshot */}
             <SlideRight delay={0.15}>
@@ -564,17 +564,15 @@ export default function LandingPage() {
               </div>
             </SlideRight>
 
-            {/* Mobile screenshot — flotando encima a la derecha */}
-            <SlideLeft delay={0.3}>
-              <div className="absolute -right-4 lg:right-8 bottom-0 w-36 sm:w-44 lg:w-52 xl:w-60 drop-shadow-2xl">
-                <Image
-                  src="/panel-mobile.png"
-                  alt="Panel de administración — dashboard móvil"
-                  width={400}
-                  height={780}
-                  className="w-full"
-                />
-              </div>
+            {/* Mobile screenshot — el absolute va en el SlideLeft para evitar el salto */}
+            <SlideLeft delay={0.3} className="absolute right-0 bottom-0 w-36 sm:w-44 lg:w-52 xl:w-60 drop-shadow-2xl">
+              <Image
+                src="/panel-mobile.png"
+                alt="Panel de administración — dashboard móvil"
+                width={400}
+                height={780}
+                className="w-full"
+              />
             </SlideLeft>
           </div>
 

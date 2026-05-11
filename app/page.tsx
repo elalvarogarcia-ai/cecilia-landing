@@ -21,7 +21,7 @@ const CHAT_MESSAGES = [
 ]
 
 const STATS_BAR = [
-  { value: '+1,240', label: 'Citas agendadas' },
+  { value: '∞', label: 'Clientes en simultáneo' },
   { value: '< 20 seg', label: 'Tiempo de respuesta' },
   { value: '24/7', label: 'Disponibilidad' },
   { value: '4×', label: 'Más visitas agendadas' },
@@ -59,7 +59,7 @@ function CalendarMockup() {
       <div className="flex items-center justify-between px-5 pt-5 pb-3 border-b border-gray-100">
         <div>
           <p className="font-bold text-gray-900 text-sm">Mayo 2025</p>
-          <p className="text-xs text-gray-400 mt-0.5">6 citas agendadas</p>
+          <p className="text-xs text-gray-400 mt-0.5">Citas agendadas automáticamente</p>
         </div>
         <div className="flex items-center gap-1">
           <div className="w-7 h-7 rounded-lg bg-gray-100 flex items-center justify-center text-gray-400 text-xs cursor-pointer">‹</div>
@@ -238,8 +238,11 @@ function WhatsAppMockup() {
       </div>
       <motion.div initial={{ opacity: 0, x: -30 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.8, ease: APPLE_EASE, delay: 1.2 }}
         className="absolute -left-12 top-16 bg-white rounded-2xl shadow-xl px-4 py-3 items-center gap-3 hidden lg:flex">
-        <span className="text-2xl">📅</span>
-        <div><p className="text-xs text-gray-500">Citas agendadas</p><p className="text-lg font-bold text-gray-800">+1,240</p></div>
+        <span className="text-2xl">👥</span>
+        <div>
+          <p className="text-xs text-gray-500">Clientes en simultáneo</p>
+          <p className="text-2xl font-black bg-gradient-to-r from-[#0C6489] to-[#44CACB] bg-clip-text text-transparent leading-tight">∞</p>
+        </div>
       </motion.div>
       <motion.div initial={{ opacity: 0, x: 30 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.8, ease: APPLE_EASE, delay: 1.4 }}
         className="absolute -right-10 bottom-24 bg-white rounded-2xl shadow-xl px-4 py-3 items-center gap-3 hidden lg:flex">

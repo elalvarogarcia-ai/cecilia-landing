@@ -312,6 +312,8 @@ export default function LandingPage() {
                 {[
                   { icon: '⚡', t: 'Respuesta inmediata', d: 'Contesta en menos de 20 segundos, las 24 horas del día.' },
                   { icon: '🏠', t: 'Presenta propiedades', d: 'Filtra y muestra las opciones más relevantes.' },
+                  { icon: '📸', t: 'Envía imágenes y planos', d: 'Comparte fotos, renders y planos directamente en el chat.' },
+                  { icon: '🧮', t: 'Precálculo hipotecario', d: 'Estima mensualidades y capacidad de crédito al instante.' },
                   { icon: '📅', t: 'Agenda citas automáticamente', d: 'Coordina visitas sin intervención humana.' },
                 ].map((b, i) => (
                   <motion.div key={b.t} initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }}

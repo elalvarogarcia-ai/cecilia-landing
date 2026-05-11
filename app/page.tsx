@@ -28,9 +28,9 @@ const STATS_BAR = [
 ]
 
 const STEPS = [
-  { num: '01', icon: '💬', title: 'El cliente escribe por WhatsApp', desc: 'El cliente inicia la conversación con cualquier pregunta. Cecilia responde de inmediato, en cualquier horario, sin tiempo de espera.' },
-  { num: '02', icon: '🏠', title: 'Cecilia presenta propiedades', desc: 'Filtra el catálogo según el presupuesto, zona y preferencias del cliente, y presenta las opciones más relevantes con fotos y detalles.' },
-  { num: '03', icon: '📅', title: 'Agenda la cita automáticamente', desc: 'Cuando el cliente muestra interés, Cecilia coordina la visita y la registra en el calendario del asesor sin ninguna intervención.' },
+  { num: '1', icon: '💬', title: 'El cliente escribe por WhatsApp', desc: 'El cliente inicia la conversación con cualquier pregunta. Cecilia responde de inmediato, en cualquier horario, sin tiempo de espera.' },
+  { num: '2', icon: '🏠', title: 'Cecilia presenta propiedades', desc: 'Filtra el catálogo según el presupuesto, zona y preferencias del cliente, y presenta las opciones más relevantes con fotos y detalles.' },
+  { num: '3', icon: '📅', title: 'Agenda la cita automáticamente', desc: 'Cuando el cliente muestra interés, Cecilia coordina la visita y la registra en el calendario del asesor sin ninguna intervención.' },
 ]
 
 /* ─── Calendar Mockup (Agenda feature visual) ───────────────── */
@@ -375,7 +375,7 @@ export default function LandingPage() {
           <StaggerGrid className="grid grid-cols-1 lg:grid-cols-3 gap-8" stagger={0.15}>
             {STEPS.map(step => (
               <div key={step.num} className="bg-white rounded-2xl p-8 shadow-sm border border-gray-100 flex flex-col gap-4 relative hover:shadow-md transition-shadow">
-                <span className="absolute top-6 right-6 text-5xl font-black text-gray-50 select-none">{step.num}</span>
+                <span className="absolute top-6 right-6 text-5xl font-black text-gray-200 select-none">{step.num}</span>
                 <span className="text-4xl">{step.icon}</span>
                 <h3 className="text-lg font-bold text-gray-900">{step.title}</h3>
                 <p className="text-gray-500 text-sm leading-relaxed">{step.desc}</p>

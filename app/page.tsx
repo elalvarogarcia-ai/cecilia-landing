@@ -588,7 +588,7 @@ export default function LandingPage() {
             <div className="relative flex items-end w-full max-w-[820px] lg:max-w-[960px] xl:max-w-[1060px]">
 
               {/* Desktop screenshot */}
-              <SlideRight delay={0.15} className="w-full mr-28 lg:mr-32 xl:mr-36">
+              <SlideRight delay={0.15} className="w-full mr-36 lg:mr-44 xl:mr-48">
                 <div className="relative">
                   {/* Glow detrás */}
                   <div className="absolute -inset-4 rounded-3xl blur-3xl opacity-30"
@@ -615,7 +615,7 @@ export default function LandingPage() {
               </SlideRight>
 
               {/* Mobile screenshot superpuesta */}
-              <SlideLeft delay={0.3} className="absolute right-0 bottom-0 w-36 lg:w-40 xl:w-44 drop-shadow-2xl">
+              <SlideLeft delay={0.3} className="absolute right-0 bottom-0 w-44 lg:w-52 xl:w-56 drop-shadow-2xl">
                 <Image
                   src="/panel-mobile.png"
                   alt="Panel de administración — dashboard móvil"

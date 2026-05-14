@@ -538,11 +538,11 @@ export default function LandingPage() {
           </div>
 
           {/* Screenshots — desktop + mobile solapados */}
-          <div className="relative flex items-end justify-center mb-20 pr-40 sm:pr-48 lg:pr-56 xl:pr-64">
+          <div className="relative flex items-end justify-center mb-20 sm:pr-44 lg:pr-52 xl:pr-56">
 
             {/* Desktop screenshot */}
             <SlideRight delay={0.15}>
-              <div className="relative w-full max-w-3xl lg:max-w-4xl">
+              <div className="relative w-full max-w-2xl sm:max-w-3xl lg:max-w-4xl">
                 {/* Glow detrás */}
                 <div className="absolute -inset-4 rounded-3xl blur-3xl opacity-30"
                   style={{ background: 'linear-gradient(135deg, #0C6489, #44CACB)' }} />
@@ -567,8 +567,8 @@ export default function LandingPage() {
               </div>
             </SlideRight>
 
-            {/* Mobile screenshot — el absolute va en el SlideLeft para evitar el salto */}
-            <SlideLeft delay={0.3} className="absolute right-0 bottom-0 w-36 sm:w-44 lg:w-52 xl:w-60 drop-shadow-2xl">
+            {/* Mobile screenshot — oculto en mobile, visible en sm+ */}
+            <SlideLeft delay={0.3} className="hidden sm:block absolute right-0 bottom-0 w-40 lg:w-48 xl:w-56 drop-shadow-2xl">
               <Image
                 src="/panel-mobile.png"
                 alt="Panel de administración — dashboard móvil"

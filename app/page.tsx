@@ -479,7 +479,7 @@ export default function LandingPage() {
               <h2 className="text-3xl lg:text-4xl font-bold text-white">Resultados que hablan por sí solos</h2>
             </FadeUp>
             <FadeUp delay={0.1}>
-              <p className="text-white/70">Datos de agentes que ya trabajan con Cecilia en Guadalajara.</p>
+              <p className="text-white/70">Lo que Cecilia puede hacer para tu negocio.</p>
             </FadeUp>
           </div>
           <StaggerGrid className="grid grid-cols-1 lg:grid-cols-3 gap-6" stagger={0.15}>

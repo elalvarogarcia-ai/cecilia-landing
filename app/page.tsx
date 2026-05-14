@@ -577,46 +577,54 @@ export default function LandingPage() {
             </ScaleIn>
           </div>
 
-          {/* sm+: desktop + mobile solapados */}
-          <div className="hidden sm:flex relative items-end justify-center mb-20 sm:pr-44 lg:pr-52 xl:pr-56">
+          {/* sm+: desktop + mobile solapados, centrados como bloque */}
+          <div className="hidden sm:flex justify-center mb-20">
+            {/*
+              Contenedor de ancho fijo centrado con mx-auto.
+              Desktop ocupa el ancho menos el espacio del teléfono (mr-X).
+              Teléfono en absolute right-0 dentro del mismo contenedor.
+              El bloque completo queda simétrico: igual margen izquierdo y derecho.
+            */}
+            <div className="relative flex items-end w-full max-w-[820px] lg:max-w-[960px] xl:max-w-[1060px]">
 
-            {/* Desktop screenshot */}
-            <SlideRight delay={0.15}>
-              <div className="relative w-full max-w-3xl lg:max-w-4xl">
-                {/* Glow detrás */}
-                <div className="absolute -inset-4 rounded-3xl blur-3xl opacity-30"
-                  style={{ background: 'linear-gradient(135deg, #0C6489, #44CACB)' }} />
-                {/* Marco de browser */}
-                <div className="relative bg-gray-900 rounded-2xl overflow-hidden shadow-2xl border border-gray-700">
-                  <div className="flex items-center gap-1.5 px-4 py-3 bg-gray-800">
-                    <div className="w-3 h-3 rounded-full bg-red-500" />
-                    <div className="w-3 h-3 rounded-full bg-yellow-500" />
-                    <div className="w-3 h-3 rounded-full bg-green-500" />
-                    <div className="mx-3 flex-1 bg-gray-700 rounded-md h-5 flex items-center px-3">
-                      <span className="text-gray-400 text-xs">admin.ceciliarealestate.cloud</span>
+              {/* Desktop screenshot */}
+              <SlideRight delay={0.15} className="w-full mr-28 lg:mr-32 xl:mr-36">
+                <div className="relative">
+                  {/* Glow detrás */}
+                  <div className="absolute -inset-4 rounded-3xl blur-3xl opacity-30"
+                    style={{ background: 'linear-gradient(135deg, #0C6489, #44CACB)' }} />
+                  {/* Marco de browser */}
+                  <div className="relative bg-gray-900 rounded-2xl overflow-hidden shadow-2xl border border-gray-700">
+                    <div className="flex items-center gap-1.5 px-4 py-3 bg-gray-800">
+                      <div className="w-3 h-3 rounded-full bg-red-500" />
+                      <div className="w-3 h-3 rounded-full bg-yellow-500" />
+                      <div className="w-3 h-3 rounded-full bg-green-500" />
+                      <div className="mx-3 flex-1 bg-gray-700 rounded-md h-5 flex items-center px-3">
+                        <span className="text-gray-400 text-xs">admin.ceciliarealestate.cloud</span>
+                      </div>
                     </div>
+                    <Image
+                      src="/panel-desktop.png"
+                      alt="Panel de administración — módulo de citas"
+                      width={1200}
+                      height={700}
+                      className="w-full"
+                    />
                   </div>
-                  <Image
-                    src="/panel-desktop.png"
-                    alt="Panel de administración — módulo de citas"
-                    width={1200}
-                    height={700}
-                    className="w-full"
-                  />
                 </div>
-              </div>
-            </SlideRight>
+              </SlideRight>
 
-            {/* Mobile screenshot superpuesta */}
-            <SlideLeft delay={0.3} className="absolute right-0 bottom-0 w-40 lg:w-48 xl:w-56 drop-shadow-2xl">
-              <Image
-                src="/panel-mobile.png"
-                alt="Panel de administración — dashboard móvil"
-                width={400}
-                height={780}
-                className="w-full"
-              />
-            </SlideLeft>
+              {/* Mobile screenshot superpuesta */}
+              <SlideLeft delay={0.3} className="absolute right-0 bottom-0 w-36 lg:w-40 xl:w-44 drop-shadow-2xl">
+                <Image
+                  src="/panel-mobile.png"
+                  alt="Panel de administración — dashboard móvil"
+                  width={400}
+                  height={780}
+                  className="w-full"
+                />
+              </SlideLeft>
+            </div>
           </div>
 
           {/* Feature pills */}

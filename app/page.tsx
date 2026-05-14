@@ -537,10 +537,10 @@ export default function LandingPage() {
             </FadeUp>
           </div>
 
-          {/* Mobile: solo imagen del teléfono centrada */}
-          <div className="sm:hidden flex justify-center mb-12">
-            <ScaleIn delay={0.2}>
-              <div className="relative w-52 drop-shadow-2xl">
+          {/* Mobile: teléfono arriba + desktop abajo, apilados */}
+          <div className="sm:hidden flex flex-col items-center gap-6 mb-12">
+            <ScaleIn delay={0.15}>
+              <div className="relative w-48 drop-shadow-2xl">
                 <div className="absolute -inset-4 rounded-3xl blur-2xl opacity-25"
                   style={{ background: 'linear-gradient(135deg, #0C6489, #44CACB)' }} />
                 <Image
@@ -550,6 +550,29 @@ export default function LandingPage() {
                   height={780}
                   className="relative w-full"
                 />
+              </div>
+            </ScaleIn>
+            <ScaleIn delay={0.3}>
+              <div className="relative w-full drop-shadow-xl">
+                <div className="absolute -inset-3 rounded-2xl blur-2xl opacity-20"
+                  style={{ background: 'linear-gradient(135deg, #0C6489, #44CACB)' }} />
+                <div className="relative bg-gray-900 rounded-xl overflow-hidden border border-gray-700">
+                  <div className="flex items-center gap-1 px-3 py-2 bg-gray-800">
+                    <div className="w-2 h-2 rounded-full bg-red-500" />
+                    <div className="w-2 h-2 rounded-full bg-yellow-500" />
+                    <div className="w-2 h-2 rounded-full bg-green-500" />
+                    <div className="mx-2 flex-1 bg-gray-700 rounded h-3.5 flex items-center px-2">
+                      <span className="text-gray-400 text-[9px]">admin.ceciliarealestate.cloud</span>
+                    </div>
+                  </div>
+                  <Image
+                    src="/panel-desktop.png"
+                    alt="Panel de administración — módulo de citas"
+                    width={1200}
+                    height={700}
+                    className="w-full"
+                  />
+                </div>
               </div>
             </ScaleIn>
           </div>

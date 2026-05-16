@@ -82,7 +82,7 @@ export const metadata: Metadata = {
   },
 
   /* Verificación (agrega el código que te dé Google Search Console) */
-  // verification: { google: 'TU_CODIGO_AQUI' },
+  verification: { google: 'DFt3JYkSFpgJbAv9W1XHhqQV2Ljxh749Cn23Qg6VDlY' },
 }
 
 /* ─── JSON-LD Structured Data ───────────────────────────────── */
